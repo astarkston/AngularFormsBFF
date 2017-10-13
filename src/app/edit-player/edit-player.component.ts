@@ -25,6 +25,9 @@ export class EditPlayerComponent implements OnInit, OnChanges {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    // this.playerForm.valueChanges.subscribe(value => {
+    //   console.log(`form changed: ${value}`);
+    // });
   }
 
   ngOnChanges(changes) {
