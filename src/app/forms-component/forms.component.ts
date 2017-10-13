@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgModel } from '@angular/forms';
+import { NgModel, FormGroup, FormControl } from '@angular/forms';
 
 import { PlayerDataService } from '../player-data.service';
 
