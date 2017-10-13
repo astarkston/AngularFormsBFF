@@ -1,24 +1,34 @@
 <div class="container">
-  <h1>Add a player</h1>
-  <form>
-    <div class="form-group">
-      <label for="playerName">Name</label>
-      <!-- <input type="text" class="form-control" id="playerName" name="playerName" required> -->
-      <input type="text" class="form-control" id="playerName" name="playerName" required [(ngModel)]="model.name">
-    </div>
-    <div class="form-group">
-      <label for="age">Number</label>
-      <!-- <input type="text" class="form-control" id="age" name="age"> -->
-      <input type="text" class="form-control" id="age" name="age" [(ngModel)]="model.age">
-    </div>
-    <div class="form-group">
-      <label for="position">Position</label>
-      <!-- <input type="text" class="form-control" name="position" id="position"> -->
-      <input type="text" class="form-control" name="position" id="position" [(ngModel)]="model.position">
-    </div>
-    <button type="submit" class="btn btn-success">Add to My Roster</button>
-    <div>Name on model: {{model.name}}</div>
-    <div>Number on model: {{model.age}}</div>
-    <div>Position on model: {{model.position}}</div>
-  </form>
+  <div [hidden]="submitted">
+    <h1>Add a player</h1>
+    <form #heroForm="ngForm" (ngSubmit)="handleSubmit()">
+      <div class="form-group">
+        <label for="playerName">Name</label>
+        <!-- <input type="text" class="form-control" id="playerName" name="playerName" required> -->
+        <input type="text" class="form-control" id="playerName" name="playerName" required [(ngModel)]="model.name" #nameRef="ngModel">
+        <div class="error" [hidden]="nameRef.valid || nameRef.pristine">Name is not valid</div>
+      </div>
+      <div class="form-group">
+        <label for="age">Age</label>
+        <!-- <input type="text" class="form-control" id="age" name="age"> -->
+        <input type="text" class="form-control" id="age" name="age" [(ngModel)]="model.age" #ageRef="ngModel">
+        <div class="error" [hidden]="ageRef.valid || ageRef.pristine">Age is not valid</div>
+      </div>
+      <div class="form-group">
+        <label for="position">Position</label>
+        <!-- <input type="text" class="form-control" name="position" id="position"> -->
+        <input type="text" class="form-control" name="position" id="position" [(ngModel)]="model.position" #positionRef="ngModel">
+        <div class="error" [hidden]="positionRef.valid || positionRef.pristine">Position is not valid</div>
+      </div>
+      <!-- <button type="submit" class="btn btn-success">Add to My Roster</button> -->
+      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Add to My Roster</button>
+    </form>
+  </div>
+  <div [hidden]="!submitted">
+    <h2>You just added a player to your roster!</h2>
+    <div>Name: {{model.name}}</div>
+    <div>Position: {{model.position}}</div>
+    <div>Age: {{model.age}}</div>
+    <button class="btn btn-success" (click)="submitted = false">Change Player Info</button>
+  </div>
 </div>

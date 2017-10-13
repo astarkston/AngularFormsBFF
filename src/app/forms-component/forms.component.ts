@@ -10,11 +10,16 @@ import { Player } from '../models/player';
 })
 export class FormsComponent implements OnInit {
   model: Player;
+  submitted: boolean = false;
 
   constructor() {
     this.model = new Player();
   }
 
   ngOnInit() {
+  }
+
+  handleSubmit() {
+    this.submitted = true;
   }
 }
