@@ -1,7 +1,9 @@
 <div class="container">
-  <div [hidden]="submitted">
+  <!-- <div [hidden]="submitted"> -->
+  <div>
     <h1>Add a player</h1>
-    <form #heroForm="ngForm" (ngSubmit)="handleSubmit()">
+    <form>
+    <!-- <form #heroForm="ngForm" (ngSubmit)="handleSubmit()"> -->
       <div class="form-group">
         <label for="playerName">Name</label>
         <!-- <input type="text" class="form-control" id="playerName" name="playerName" required> -->
@@ -20,15 +22,15 @@
         <input type="text" class="form-control" name="position" id="position" [(ngModel)]="model.position" #positionRef="ngModel">
         <div class="error" [hidden]="positionRef.valid || positionRef.pristine">Position is not valid</div>
       </div>
-      <!-- <button type="submit" class="btn btn-success">Add to My Roster</button> -->
-      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Add to My Roster</button>
+      <button type="submit" class="btn btn-success">Add to My Roster</button>
+      <!-- <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Add to My Roster</button> -->
     </form>
   </div>
-  <div [hidden]="!submitted">
+  <!-- <div [hidden]="!submitted">
     <h2>You just added a player to your roster!</h2>
     <div>Name: {{model.name}}</div>
     <div>Position: {{model.position}}</div>
     <div>Age: {{model.age}}</div>
     <button class="btn btn-success" (click)="submitted = false">Change Player Info</button>
-  </div>
+  </div> -->
 </div>
