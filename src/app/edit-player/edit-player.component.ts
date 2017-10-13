@@ -9,6 +9,11 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 })
 
 export class EditPlayerComponent implements OnInit, OnChanges {
+  // playerForm = new FormGroup({
+  //   name: new FormControl(),
+  //   position: new FormControl(),
+  //   age: new FormControl()
+  // });
   playerForm = this.fb.group({
     name: ['', Validators.required],
     position: '',
