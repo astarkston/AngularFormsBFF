@@ -3,22 +3,22 @@
   <form>
     <div class="form-group">
       <label for="playerName">Name</label>
-      <!-- <input type="text" class="form-control" id="playerName" name="playerName" required> -->
-      <input type="text" class="form-control" id="playerName" name="playerName" required [(ngModel)]="model.name">
+      <input type="text" class="form-control" id="playerName" name="playerName" required>
+      <!-- <input type="text" class="form-control" id="playerName" name="playerName" required [(ngModel)]="model.name"> -->
     </div>
     <div class="form-group">
       <label for="age">Number</label>
-      <!-- <input type="text" class="form-control" id="age" name="age"> -->
-      <input type="text" class="form-control" id="age" name="age" [(ngModel)]="model.age">
+      <input type="text" class="form-control" id="age" name="age">
+      <!-- <input type="text" class="form-control" id="age" name="age" [(ngModel)]="model.age"> -->
     </div>
     <div class="form-group">
       <label for="position">Position</label>
-      <!-- <input type="text" class="form-control" name="position" id="position"> -->
-      <input type="text" class="form-control" name="position" id="position" [(ngModel)]="model.position">
+      <input type="text" class="form-control" name="position" id="position">
+      <!-- <input type="text" class="form-control" name="position" id="position" [(ngModel)]="model.position"> -->
     </div>
     <button type="submit" class="btn btn-success">Add to My Roster</button>
-    <div>Name on model: {{model.name}}</div>
+    <!-- <div>Name on model: {{model.name}}</div>
     <div>Number on model: {{model.age}}</div>
-    <div>Position on model: {{model.position}}</div>
+    <div>Position on model: {{model.position}}</div> -->
   </form>
 </div>
