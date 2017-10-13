@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { Player } from '../models/player';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
@@ -8,21 +8,24 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
   styleUrls: ['./edit-player.component.css']
 })
 
-export class EditPlayerComponent implements OnInit {
-  // playerForm = new FormGroup({
-  //   name: new FormControl(),
-  //   position: new FormControl(),
-  //   age: new FormControl()
-  // });
+export class EditPlayerComponent implements OnInit, OnChanges {
   playerForm = this.fb.group({
     name: ['', Validators.required],
     position: '',
-    age: ''
+    age: '',
   });
 
   @Input() player: Player;
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges(changes) {
+    if (this.player) {
+      this.playerForm.reset();
+      this.playerForm.patchValue(this.player);
+    }
   }
 }
