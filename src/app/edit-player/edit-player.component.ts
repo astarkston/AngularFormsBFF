@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, Output, EventEmitter } from '@angular/core';
 import { Player } from '../models/player';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
@@ -15,6 +15,7 @@ export class EditPlayerComponent implements OnInit, OnChanges {
     age: '',
   });
 
+  @Output() submitted: EventEmitter<any> = new EventEmitter<any>();
   @Input() player: Player;
 
   constructor(private fb: FormBuilder) { }
@@ -22,10 +23,20 @@ export class EditPlayerComponent implements OnInit, OnChanges {
   ngOnInit() {
   }
 
-  ngOnChanges(changes) {
+  ngOnChanges() {
+    this.playerForm.reset();    
     if (this.player) {
-      this.playerForm.reset();
       this.playerForm.patchValue(this.player);
     }
   }
+
+  reset() {
+    this.ngOnChanges();
+  }
+
+  // onSubmit() {
+  //   let player = Object.assign({}, this.player, this.playerForm.value);
+  //   this.submitted.emit(player);
+  //   this.ngOnChanges();
+  // }
 }

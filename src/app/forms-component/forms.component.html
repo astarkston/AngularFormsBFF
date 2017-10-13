@@ -20,6 +20,7 @@
     </div>
     <div [hidden]="!editMode" class="col-md-4">
       <edit-player [player]="selectedPlayer"></edit-player>
+      <!-- <edit-player (submitted)="handleSubmit($event)" [player]="selectedPlayer"></edit-player> -->
     </div>
   </div>
 </div>

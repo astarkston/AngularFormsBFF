@@ -30,7 +30,12 @@ export class FormsComponent implements OnInit {
     this.selectedPlayer = player;
   }
 
-  handleSubmit() {
+  handleSubmit(player) {
     this.submitted = true;
+    // this.editMode = false;
+
+    // let ix = this.players.indexOf(this.selectedPlayer);
+    // this.players[ix] = Object.assign({}, this.players[ix], player);
+    // this.wishThemHappyBirthday();
   }
 }
