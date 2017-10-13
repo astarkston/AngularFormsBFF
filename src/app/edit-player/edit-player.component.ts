@@ -24,7 +24,6 @@ export class EditPlayerComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.playerForm.reset();    
     if (this.player) {
       this.playerForm.patchValue(this.player);
     }
