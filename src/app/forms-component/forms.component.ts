@@ -12,6 +12,7 @@ import { Player } from '../models/player';
 })
 export class FormsComponent implements OnInit {
   players: Player[];
+  selectedPlayer: Player;
   submitted: boolean = false;
   editMode: boolean = false;
 
@@ -26,6 +27,7 @@ export class FormsComponent implements OnInit {
 
   editPlayer(player: Player) {
     this.editMode = true;
+    this.selectedPlayer = player;
   }
 
   handleSubmit() {
