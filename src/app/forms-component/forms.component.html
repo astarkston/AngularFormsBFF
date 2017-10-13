@@ -1,9 +1,9 @@
 <div class="container">
-  <!-- <div [hidden]="submitted"> -->
   <div>
+  <!-- <div [hidden]="submitted"> -->
     <h1>Add a player</h1>
     <form>
-    <!-- <form #heroForm="ngForm" (ngSubmit)="handleSubmit()"> -->
+    <!-- <form #playerForm="ngForm" (ngSubmit)="handleSubmit()"> -->
       <div class="form-group">
         <label for="playerName">Name</label>
         <!-- <input type="text" class="form-control" id="playerName" name="playerName" required> -->
@@ -23,7 +23,7 @@
         <div class="error" [hidden]="positionRef.valid || positionRef.pristine">Position is not valid</div>
       </div>
       <button type="submit" class="btn btn-success">Add to My Roster</button>
-      <!-- <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Add to My Roster</button> -->
+      <!-- <button type="submit" class="btn btn-success" [disabled]="!playerForm.form.valid">Add to My Roster</button> -->
     </form>
   </div>
   <!-- <div [hidden]="!submitted">
