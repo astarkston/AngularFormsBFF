@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 
+import { PlayerDataService } from '../player-data.service';
+
 import { Player } from '../models/player';
 
 @Component({
@@ -9,14 +11,21 @@ import { Player } from '../models/player';
   styleUrls: ['./forms.component.css']
 })
 export class FormsComponent implements OnInit {
-  model: Player;
+  players: Player[];
   submitted: boolean = false;
+  editMode: boolean = false;
 
-  constructor() {
-    this.model = new Player();
+  constructor(private playerSerivce: PlayerDataService) {
   }
 
   ngOnInit() {
+    this.playerSerivce.getPlayers().subscribe(players => {
+      this.players = players;
+    });
+  }
+
+  editPlayer(player: Player) {
+    this.editMode = true;
   }
 
   handleSubmit() {

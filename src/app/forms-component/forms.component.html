@@ -1,36 +1,25 @@
 <div class="container">
-  <!-- <div [hidden]="submitted"> -->
-  <div>
-    <h1>Add a player</h1>
-    <form>
-    <!-- <form #heroForm="ngForm" (ngSubmit)="handleSubmit()"> -->
-      <div class="form-group">
-        <label for="playerName">Name</label>
-        <!-- <input type="text" class="form-control" id="playerName" name="playerName" required> -->
-        <input type="text" class="form-control" id="playerName" name="playerName" required [(ngModel)]="model.name" #nameRef="ngModel">
-        <div class="error" [hidden]="nameRef.valid || nameRef.pristine">Name is not valid</div>
-      </div>
-      <div class="form-group">
-        <label for="age">Age</label>
-        <!-- <input type="text" class="form-control" id="age" name="age"> -->
-        <input type="text" class="form-control" id="age" name="age" [(ngModel)]="model.age" #ageRef="ngModel">
-        <div class="error" [hidden]="ageRef.valid || ageRef.pristine">Age is not valid</div>
-      </div>
-      <div class="form-group">
-        <label for="position">Position</label>
-        <!-- <input type="text" class="form-control" name="position" id="position"> -->
-        <input type="text" class="form-control" name="position" id="position" [(ngModel)]="model.position" #positionRef="ngModel">
-        <div class="error" [hidden]="positionRef.valid || positionRef.pristine">Position is not valid</div>
-      </div>
-      <button type="submit" class="btn btn-success">Add to My Roster</button>
-      <!-- <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Add to My Roster</button> -->
-    </form>
+  <div class="row">
+    <div [ngClass]="{'col-md-12': !editMode, 'col-md-8': editMode}">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Position</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of players" (click)="editPlayer(p)">
+            <td>{{p.name}}</td>
+            <td>{{p.age}}</td>
+            <td>{{p.position}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div [hidden]="!editMode" class="col-md-4">
+      <edit-player></edit-player>
+    </div>
   </div>
-  <!-- <div [hidden]="!submitted">
-    <h2>You just added a player to your roster!</h2>
-    <div>Name: {{model.name}}</div>
-    <div>Position: {{model.position}}</div>
-    <div>Age: {{model.age}}</div>
-    <button class="btn btn-success" (click)="submitted = false">Change Player Info</button>
-  </div> -->
 </div>
